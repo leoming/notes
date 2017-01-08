@@ -1,0 +1,31 @@
+源码目录结构
+├── Android.bp -> build/soong/root.bp
+├── art  二进制兼容性检查
+├── bionic  Bionic C库实现代码
+├── bootable  启动引导程序源码，包含bootloader, diskinstall 和 recovery
+├── bootstrap.bash -> build/soong/bootstrap.bash
+├── build  编译系统，包含各种make和shell脚本
+├── compatibility
+├── cts  兼容性检测源码,Android手机如果需要Google认证，就需要通过Google的兼容性检测，目的是确保该手机系统具备标准的SDK API接口
+├── dalvik  Dalvik虚拟机源码
+├── developers
+├── development  Android开发所使用的一些配置文件
+├── device  不同厂商设备相关的编译脚本，包含三星，摩托罗拉等
+├── docs  source.android.com文档
+├── external  Android依赖的扩展库，包括bluetooth,skia,sqlite,webkit,wpa_supplicant等功能库和一些工具，如oprofile用于JNI层的性能调试。系统运行库层大部分代码位于这里
+├── frameworks  框架层源码，应用框架层位于这里
+├── hardware  硬件抽象层相关源码
+├── kernel  linux内核
+├── libcore  核心java库。
+├── libnativehelper  NDK开发环境相关源码
+├── Makefile
+├── packages  包含各种内置应用程序，内容提供器，输入法等。应用层开发主要集中在这部分
+├── pdk
+├── platform_testing
+├── prebuilts  编译所需的程序文件，主要包含不同平台下的ARM编译器
+├── sdk  编译SDK工具所需的文件，包含hierarchyviewer,eclipse插件,emulator,traceview等主要工具
+├── system  Linux所需的一些系统工具程序，比如adb,debuggerd,fastboot,logcat等
+├── test
+├── toolchain
+└── tools
+应用层源码位于packages目录下，主要包含核心应用程序、内容提供器（provider）、输入法等；应用程序框架层源码位于frameworks目录下；系统运行库分布于bionic、external等目录下；Android核心库位于libcore目录下；dalvik是Android虚拟机的源码目录；其他目录主要是编译和开发工具的源码目录。
