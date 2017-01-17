@@ -1,0 +1,54 @@
+Python 支持使用成对的单引号或双引号,
+三引号(三个连续的单引号或者双引号)可以用来包含特殊字符。使用索引运算符( [ ] )和切
+片运算符( [ : ] )可以得到子字符串。字符串有其特有的索引规则:第一个字符的索引是 0,
+最后一个字符的索引是 -1
+
+if expression:
+    if_suite
+    
+if expression1:
+    if_suite
+elif expression2:
+    elif_suite
+else:
+    else_suite    
+    
+列表解析
+这是一个让人欣喜的术语, 表示你可以在一行中使用一个 for 循环将所有值放到一个列表
+当中:
+>>> squared = [x ** 2 for x in range(4)]
+>>> for i in squared:
+... print i
+0
+1
+4
+9
+列表解析甚至能做更复杂的事情, 比如挑选出符合要求的值放入列表:
+>>> sqdEvens = [x ** 2 for x in range(8) if not x % 2]
+>>>
+>>> for i in sqdEvens:
+... print i
+0
+4
+16
+36    
+
+dir([obj])
+显示对象的属性,如果没有提供参数, 则显示全局变量的名字
+help([obj])
+以一种整齐美观的形式 显示对象的文档字符串, 如果没有提供任何参
+数, 则会进入交互式帮助。
+int(obj)
+将一个对象转换为整数
+len(obj)
+返回对象的长度
+open(fn, mode) 以 mode('r' = 读, 'w'= 写)方式打开一个文件名为 fn 的文件
+range([[ start ,] stop [, step ])
+返回一个整数列表。起始值为 start, 结束值为 stop - 1; start
+默认值为 0, step默认值为1。
+raw_input(str) 等待用户输入一个字符串, 可以提供一个可选的参数 str 用作提示信
+息。
+str(obj)
+将一个对象转换为字符串
+type(obj)
+返回对象的类型(返回值本身是一个 type 对象!)

@@ -1,0 +1,32 @@
+PRAGMA key='testkey';PRAGMA cipher='aes-128-cbc';PRAGMA kdf_iter='100';
+dbus-send --system --type=method_call --print-reply --dest=com.syberos.messaged "/" com.syberos.messaged.getEvents int32:1
+sdk-invoker 0 com.syberos.message:syberos.message.ui:uiapp /usr/apps/message/bin/message
+sdk-invoker 0 com.syberos.contact:contact-contact:uiapp /usr/apps/contact/bin/contact -contacts
+sed -i "s/{/{\nDEBUG() << \"SYBERMESSAGE: \" << QString(\"%1:%2\").arg(__FILE__).arg(__LINE__);/g" ./*.cpp 
+sed -i "s/\(qsTr([^)]*)\)/os.i18n.ctr(\1)/g" ./*.qml
+sed -i "s/\+\s*app.transflag//g" ./*.qml
+
+mkfs -t ext3 /dev/sdd1
+/var/cache/apt/archives
+sudo ufw disable
+重置compiz
+dconf reset -f /org/compiz/ && setsid unity
+perl -MCPAN -e shell
+
+增加一个网卡
+sudo ifconfig eth0:0 172.16.23.84
+strace -s 300 -fF  pkgs-tool -sopid com.syberos.TestCase126
+
+repo init -u ssh://mingming_zhang_dev@cactus.insyber.com:29422/manifests -b ql_qc_8952_hipad_ex_dev -m publish.xml
+
+git format-patch HEAD^^^
+git am *.patch
+
+dd if=/dev/zero of=misc.img bs=8 count=1
+
+vim :q recording
+命令模式输入q，在输入一个字符表示宏("w"),开始录制,输入q结束录制。
+使用宏@w会执行录制操作,10@w执行10次
+
+find . -name version.txt | xargs grep -E "(To|From)" | sort
+/usr/etc/syberos-release
