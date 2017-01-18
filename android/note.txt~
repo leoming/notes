@@ -420,7 +420,7 @@ SystemServer::main
 
 SystemServer启动后ZygoteInit::main()执行到runSelectLoop(),进入无限循环，监听客户端的连接请求，如果有请求，便调用runOnce处理。
 
-Home启动分析
+
 
 
 
