@@ -1,1 +1,0 @@
-cmd_/home/zmm/works/notes/android/input_system/DRV_0004_InputEmulator/InputEmulator-yf.o := arm-eabi-ld    -r -o /home/zmm/works/notes/android/input_system/DRV_0004_InputEmulator/InputEmulator-yf.o /home/zmm/works/notes/android/input_system/DRV_0004_InputEmulator/InputEmulator.o 
