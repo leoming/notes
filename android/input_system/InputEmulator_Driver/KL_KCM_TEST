@@ -1,0 +1,92 @@
+
+kl文件格式：
+key 17                 W
+    内核中的code值     AKEYCODE_W
+
+创建:
+mkdir -p /data/system/devices/keylayout/
+cp /system/usr/keylayout/Generic.kl /data/system/devices/keylayout/InputEmulatorFrom100ask_net.kl
+修改 /data/system/devices/keylayout/InputEmulatorFrom100ask_net.kl
+添加这2行:
+key  227  STAR
+key  228  POUND
+     scancode ===> android keycode 只是表示按下了某个键，
+修改权限:
+chmod -R 777 /data/system/devices
+
+
+insmod InputEmulator-yf.ko
+#lsmod
+#rmmod
+
+发送*键
+sendevent /dev/input/event6 1 227 1 
+sendevent /dev/input/event6 1 227 0 
+sendevent /dev/input/event6 0 0 0 
+
+发送#键
+sendevent /dev/input/event6 1 228 1 
+sendevent /dev/input/event6 1 228 0 
+sendevent /dev/input/event6 0 0 0 
+
+
+kcm文件格式：
+key B {
+    label:                              'B'  # 印在按键上的文字                        
+    base:                               'b'  # 如果没有其他按键(shift, ctrl等)同时按下，此按键对应的字符是'b'                      
+    shift, capslock:                    'B'                               
+}     
+
+B 表示 AKEYCODE_B
+
+实验:
+mkdir -p /data/system/devices/keychars
+cp /system/usr/keychars/Generic.kcm /data/system/devices/keychars/InputEmulatorFrom100ask_net.kcm
+修改:
+key STAR {
+    label:                              '*'
+#    base:                               '*'                                           
+    base:                               '1'
+}                                                                                         
+                                                                                          
+key POUND {                                                             
+    label:                              '#'
+#    base:                               '#'
+    base:                               '2'
+}         
+
+chmod -R 777 /data/system/devices
+
+insmod InputEmulator-yf.ko
+
+发送*键, 得到1
+sendevent /dev/input/event6 1 227 1 
+sendevent /dev/input/event6 1 227 0 
+sendevent /dev/input/event6 0 0 0 
+
+发送#键, 得到2
+sendevent /dev/input/event6 1 228 1 
+sendevent /dev/input/event6 1 228 0 
+sendevent /dev/input/event6 0 0 0 
+
+
+
+keylayout: 只是用来表示驱动上报的scancode对应哪一个android按键(AKEYCODE_x)
+           只是表示按键被按下
+           它对应哪一个字符，由kcm文件决定
+kcm: 用来表示android按键(AKEYCODE_x)对应哪一个字符
+     表示同时按下其他按键后，对应哪个字符
+
+
+也可以用组合键
+sendevent /dev/input/event6 1 42 1 
+sendevent /dev/input/event6 1 9 1 
+sendevent /dev/input/event6 1 9 0
+sendevent /dev/input/event6 1 42 0 
+sendevent /dev/input/event6 0 0 0 
+
+sendevent /dev/input/event6 1 42 1 
+sendevent /dev/input/event6 1 4 1 
+sendevent /dev/input/event6 1 4 0
+sendevent /dev/input/event6 1 42 0 
+sendevent /dev/input/event6 0 0 0 
